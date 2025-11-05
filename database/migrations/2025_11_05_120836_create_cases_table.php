@@ -12,7 +12,15 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('cases', function (Blueprint $table) {
-            $table->id();
+            $table->string('id');
+            $table->string('external_ref');
+            $table->string('status');
+            $table->string('priority');
+            $table->string('arrival_ts');
+            $table->string('checkpoint_id');
+            $table->string('origin_country');
+            $table->string('destination_country');
+            $table->string('risk_flags');
             $table->timestamps();
         });
     }

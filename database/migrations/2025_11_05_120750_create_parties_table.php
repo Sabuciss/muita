@@ -12,7 +12,14 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('parties', function (Blueprint $table) {
-            $table->id();
+            $table->string('id');
+            $table->string('type');
+            $table->string('name');
+            $table->integer('reg_code');
+            $table->string('vat');
+            $table->string('country');
+            $table->string('email');
+            $table->integer('phone');
             $table->timestamps();
         });
     }
