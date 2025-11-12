@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('username');
             $table->string('full_name');
             $table->string('role');
-            $table->string('active');
+            $table->boolean('active');
             $table->timestamps();
         });
     }

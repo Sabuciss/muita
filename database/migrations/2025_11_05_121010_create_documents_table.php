@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('mime_type');
             $table->string('category');
             $table->ineger('pages');
-            $table->string('uploaded_by');
+            $table->string('uploaded_by');//foreighn id jo sasaistīts ar users tabulu
             $table->timestamps();
         });
     }
