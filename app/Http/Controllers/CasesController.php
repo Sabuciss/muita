@@ -30,6 +30,16 @@ class CasesController extends Controller
                     'risk_flags' => $cases['risk_flags'],
                 ]
             );
+
+            $query = Cases::query();
+                if ($request->has('status')) {
+                    $query->where('status', $request->input('status'));
+                }
+                if ($request->has('vehicle')) {
+                    $query->where('vehicle', $request->input('vehicle'));
+                }
+                $cases = $query->paginate(20);
+
         }
     }
 }

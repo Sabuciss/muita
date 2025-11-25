@@ -15,8 +15,21 @@ $mdata = json_decode($data, true);
 <body>
    <p>Hello, welcome to the Muita application!</p>
 
-    <span>
-      <?php echo $mdata['total']['vehicles']; ?>
-    </span>
+        <h2>Transportlīdzekļi</h2>
+    <ul>
+        @foreach($vehicles as $vehicle)
+        <li>{{ $vehicle['plate_no'] }} | {{ $vehicle['make'] }} | {{ $vehicle['model'] }} | {{ $vehicle['country'] }}</li>
+        @endforeach
+    </ul>
+
+<h2>Pārbaudes lietas</h2>
+
+    <ul>
+        @foreach($cases as $case)
+        <li>{{ $case['external_ref'] }} | Statuss: {{ $case['status'] }} | Prioritāte: {{ $case['priority'] }}</li>
+        @endforeach
+    </ul>
+
+
 </body>
 </html>

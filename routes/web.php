@@ -7,13 +7,17 @@ use App\Http\Controllers\InspectionsController;
 use App\Http\Controllers\PartiesController;
 use App\Http\Controllers\UsersController;
 use App\Http\Controllers\VehiclesController;
+use App\Http\Controllers\DashboardController;
 
 
 
 Route::get('/', function () {
-    return view('welcome');
+     $data = file_get_contents("https://deskplan.lv/muita/app.json");
+     $jsonData = json_decode($data, true);
+    return view('welcome', ['vehicles' => $jsonData['vehicles']]);
 });
 
+Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
 
 Route::get('/cases', [CasesController::class, 'showDataFromJson']);
 
