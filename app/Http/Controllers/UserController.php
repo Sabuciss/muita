@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class UsersController extends Controller
+class UserController extends Controller
 {
      public function showDataFromJson()
     {
@@ -16,14 +16,14 @@ class UsersController extends Controller
 
         public function updateUsersFromJson($jsonData)
     {
-        foreach ($jsonData['users'] as $users) {
-            \App\Models\Users::updateOrCreate(
-                ['id' => $users['id']],
+        foreach ($jsonData['user'] as $user) {
+            \App\Models\User::updateOrCreate(
+                ['id' => $user['id']],
                 [
-                    'username' => $users['username'],
-                    'full_name' => $users['full_name'],
-                    'role' => $users['role'],
-                    'active' => $users['active'],
+                    'username' => $user['username'],
+                    'full_name' => $user['full_name'],
+                    'role' => $user['role'],
+                    'active' => $user['active'],
                 ]
             );
         }
