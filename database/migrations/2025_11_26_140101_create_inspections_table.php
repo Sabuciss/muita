@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('requested_by');
             $table->datetime('start_ts');
             $table->string('location');
-            $table->string('checks');
+            $table->json('checks');
             $table->timestamps();
         });
     }

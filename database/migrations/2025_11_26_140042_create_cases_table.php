@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('checkpoint_id');
             $table->string('origin_country');
             $table->string('destination_country');
-            $table->string('risk_flags');
+            $table->json('risk_flags');
             $table->timestamps();
         });
     }
